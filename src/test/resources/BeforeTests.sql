@@ -1,0 +1,10 @@
+create database connectortest character set 'utf8mb4' collate 'utf8mb4_0900_bin';
+use connectortest;
+create user 'connector-test-native'@'localhost' identified with mysql_native_password by '4087d9d58e';
+grant all on connectortest.* to 'connector-test-native'@'localhost';
+create user 'connector-test-sha256'@'localhost' identified with sha256_password by '577b202044';
+grant all on connectortest.* to 'connector-test-sha256'@'localhost';
+create user 'connector-test-caching-sha2'@'localhost' identified with caching_sha2_password by '2c535b21ab';
+grant all on connectortest.* to 'connector-test-caching-sha2'@'localhost';
+flush tables;
+flush privileges;
